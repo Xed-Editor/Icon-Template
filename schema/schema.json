@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Xed-Editor icon pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "icons"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Xed-Editor extension schema URL. This property enables theme validation and auto-completion"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the icon pack"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the icon pack",
+      "minLength": 1
+    },
+    "applyTint": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether icons should be tinted by the UI theme"
+    },
+    "icons": {
+      "$ref": "#/$defs/IconPackList"
+    }
+  },
+  "$defs": {
+    "IconPackList": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "defaultFile",
+        "defaultFolder",
+        "defaultFolderExpanded"
+      ],
+      "properties": {
+        "defaultFile": {
+          "type": "string",
+          "description": "Default icon for files"
+        },
+        "defaultFolder": {
+          "type": "string",
+          "description": "Default icon for folders (collapsed)"
+        },
+        "defaultFolderExpanded": {
+          "type": "string",
+          "description": "Default icon for folders (expanded)"
+        },
+        "folderNames": {
+          "type": "object",
+          "description": "Mapping of folder names to icon paths",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        },
+        "folderNamesExpanded": {
+          "type": "object",
+          "description": "Mapping of expanded folder names to icon paths",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        },
+        "fileNames": {
+          "type": "object",
+          "description": "Mapping of file names to icon paths",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        },
+        "fileExtensions": {
+          "type": "object",
+          "description": "Mapping of file extensions to icon paths",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        },
+        "languageNames": {
+          "type": "object",
+          "description": "Mapping of built-in and extension-defined language names (lowercase) to icon paths",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^[a-z0-9_\\-]+$",
+            "description": "Language key must be lowercase"
+          },
+          "properties": {
+            "javascript": { "type": "string" },
+            "typescript": { "type": "string" },
+            "jsx": { "type": "string" },
+            "tsx": { "type": "string" },
+
+            "html": { "type": "string" },
+            "htmx": { "type": "string" },
+            "css": { "type": "string" },
+            "scss": { "type": "string" },
+            "less": { "type": "string" },
+
+            "json": { "type": "string" },
+            "markdown": { "type": "string" },
+            "xml": { "type": "string" },
+            "yaml": { "type": "string" },
+
+            "python": { "type": "string" },
+            "java": { "type": "string" },
+            "groovy": { "type": "string" },
+            "c": { "type": "string" },
+            "cpp": { "type": "string" },
+            "csharp": { "type": "string" },
+            "ruby": { "type": "string" },
+            "lua": { "type": "string" },
+            "go": { "type": "string" },
+            "php": { "type": "string" },
+            "rust": { "type": "string" },
+            "pascal": { "type": "string" },
+            "zig": { "type": "string" },
+            "nim": { "type": "string" },
+            "swift": { "type": "string" },
+            "dart": { "type": "string" },
+            "rocq": { "type": "string" },
+            "kotlin": { "type": "string" },
+            "lisp": { "type": "string" },
+
+            "shell": { "type": "string" },
+            "windows_shell": { "type": "string" },
+            "powershell": { "type": "string" },
+
+            "smali": { "type": "string" },
+            "assembly": { "type": "string" },
+            "cmake": { "type": "string" },
+            "r": { "type": "string" },
+
+            "sql": { "type": "string" },
+            "toml": { "type": "string" },
+            "ini": { "type": "string" },
+            "properties": { "type": "string" },
+            "ignore": { "type": "string" },
+            "diff": { "type": "string" },
+
+            "text": { "type": "string" },
+            "log": { "type": "string" },
+            "latex": { "type": "string" },
+
+            "image": { "type": "string" },
+            "audio": { "type": "string" },
+            "video": { "type": "string" },
+            "archive": { "type": "string" },
+            "executable": { "type": "string" },
+            "apk": { "type": "string" },
+            "unknown": { "type": "string" }
+          },
+
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
