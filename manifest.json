@@ -1,0 +1,18 @@
+{
+    "$schema": "schema/schema.json",
+    "id": "icon-template",
+    "name": "Icon template",
+    "applyTint": false,
+    "icons": {
+        "defaultFile": "icons/file.svg",
+        "defaultFolderExpanded": "icons/folder-open.svg",
+        "defaultFolder": "icons/folder.svg",
+        "folderNames": {},
+        "folderNamesExpanded": {},
+        "fileNames": {},
+        "fileExtensions": {},
+        "languageNames": {
+            "html": "icons/html.svg"
+        }
+    }
+}
