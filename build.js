@@ -8,7 +8,7 @@ const root = __dirname;
 const manifestPath = path.join(root, "manifest.json");
 
 if (!fs.existsSync(manifestPath)) {
-  console.error("manifest.json not found");
+  console.error("Error: manifest.json not found");
   process.exit(1);
 }
 
@@ -27,19 +27,42 @@ if (fs.existsSync(zipPath)) {
   fs.unlinkSync(zipPath);
 }
 
-const filesToInclude = [
-  "icons",
+/**
+ * Exclusion rules
+ */
+const EXCLUDED_DIRS = new Set([
+  "dist",
+  "node_modules",
   "schema",
-  "manifest.json",
-  "README.md",
-  "LICENSE"
-];
+  ".git",
+  ".gitignore",
+  ".idea",
+  ".vscode",
+]);
+
+const EXCLUDED_FILES = new Set([
+  path.basename(__filename)
+]);
+
+function shouldExclude(fullPath) {
+  const rel = path.relative(root, fullPath);
+  const parts = rel.split(path.sep);
+
+  if (parts.some(p => EXCLUDED_DIRS.has(p))) return true;
+
+  if (EXCLUDED_FILES.has(path.basename(fullPath))) return true;
+
+  return false;
+}
 
 function walk(dir) {
   let results = [];
 
   for (const file of fs.readdirSync(dir)) {
     const full = path.join(dir, file);
+
+    if (shouldExclude(full)) continue;
+
     const stat = fs.statSync(full);
 
     if (stat.isDirectory()) {
@@ -52,6 +75,9 @@ function walk(dir) {
   return results;
 }
 
+/**
+ * CRC32
+ */
 function crc32(buf) {
   let crc = ~0;
 
@@ -66,13 +92,16 @@ function crc32(buf) {
   return ~crc >>> 0;
 }
 
+/**
+ * DOS timestamp
+ */
 function dosDateTime(date = new Date()) {
   const year = Math.max(date.getFullYear() - 1980, 0);
 
   const dosTime =
     (date.getHours() << 11) |
     (date.getMinutes() << 5) |
-    (date.getSeconds() / 2);
+    (Math.floor(date.getSeconds() / 2));
 
   const dosDate =
     (year << 9) |
@@ -82,21 +111,7 @@ function dosDateTime(date = new Date()) {
   return { dosTime, dosDate };
 }
 
-const allFiles = [];
-
-for (const item of filesToInclude) {
-  const full = path.join(root, item);
-
-  if (!fs.existsSync(full)) continue;
-
-  const stat = fs.statSync(full);
-
-  if (stat.isDirectory()) {
-    allFiles.push(...walk(full));
-  } else {
-    allFiles.push(full);
-  }
-}
+const allFiles = walk(root);
 
 const fileRecords = [];
 const centralDirectory = [];
@@ -112,7 +127,6 @@ for (const file of allFiles) {
   const compressed = zlib.deflateRawSync(data);
 
   const crc = crc32(data);
-
   const { dosTime, dosDate } = dosDateTime();
 
   const fileNameBuf = Buffer.from(relativePath);
