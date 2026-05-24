@@ -35,8 +35,9 @@ const EXCLUDED_DIRS = new Set([
   "node_modules",
   "schema",
   ".git",
+  ".gitignore",
   ".idea",
-  ".vscode"
+  ".vscode",
 ]);
 
 const EXCLUDED_FILES = new Set([
