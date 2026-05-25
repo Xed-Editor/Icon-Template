@@ -6,7 +6,7 @@ You can use this template as a starting point to build your own icon packs.
 Icon packs follow a simple manifest-based structure (similar to a lookup table that maps file/folder patterns to icon assets).
 
 > [!TIP]
-> See the [documentation](https://xed-editor.github.io/docs/icon-packs/#creating-an-icon-pack) page for details on customizing the icon pack.
+> See the [documentation](https://xed-editor.github.io/Xed-Docs/docs/icon-packs/#creating-an-icon-pack) page for details on customizing the icon pack.
 
 ---
 
