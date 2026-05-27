@@ -27,6 +27,11 @@
       "default": false,
       "description": "Whether icons should be tinted by the UI theme"
     },
+    "minAppVersion": {
+      "type": ["integer", "null"],
+      "default": null,
+      "description": "Minimum Xed-Editor version code supported. null means no minimum restriction"
+    },
     "icons": {
       "$ref": "#/$defs/IconPackList"
     }
