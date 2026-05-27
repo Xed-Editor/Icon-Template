@@ -2,6 +2,7 @@
     "$schema": "schema/schema.json",
     "id": "icon-template",
     "name": "Icon template",
+    "minAppVersion": 87,
     "applyTint": false,
     "icons": {
         "defaultFile": "icons/file.svg",
