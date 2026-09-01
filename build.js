@@ -18,7 +18,7 @@ const id = manifest.id || "package";
 const version = manifest.version || "1.0.0";
 
 const outDir = path.join(root, "dist");
-const zipName = `${id}-${version}.zip`;
+const zipName = `${id}-${version}.xed`;
 const zipPath = path.join(outDir, zipName);
 
 fs.mkdirSync(outDir, { recursive: true });
