@@ -2,6 +2,7 @@
     "$schema": "schema/schema.json",
     "id": "icon-template",
     "name": "Icon template",
+    "type": "icon_pack",
     "minAppVersion": 87,
     "applyTint": false,
     "icons": {

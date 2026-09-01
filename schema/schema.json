@@ -3,11 +3,7 @@
   "title": "Xed-Editor icon pack",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "id",
-    "name",
-    "icons"
-  ],
+  "required": ["id", "name", "icons"],
   "properties": {
     "$schema": {
       "type": "string",
@@ -34,17 +30,18 @@
     },
     "icons": {
       "$ref": "#/$defs/IconPackList"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["extension", "theme", "icon_pack"],
+      "description": "Package type (used in unified .xed format)"
     }
   },
   "$defs": {
     "IconPackList": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "defaultFile",
-        "defaultFolder",
-        "defaultFolderExpanded"
-      ],
+      "required": ["defaultFile", "defaultFolder", "defaultFolderExpanded"],
       "properties": {
         "defaultFile": {
           "type": "string",
@@ -99,71 +96,172 @@
             "description": "Language key must be lowercase"
           },
           "properties": {
-            "javascript": { "type": "string" },
-            "typescript": { "type": "string" },
-            "jsx": { "type": "string" },
-            "tsx": { "type": "string" },
-
-            "html": { "type": "string" },
-            "htmx": { "type": "string" },
-            "css": { "type": "string" },
-            "scss": { "type": "string" },
-            "less": { "type": "string" },
-
-            "json": { "type": "string" },
-            "markdown": { "type": "string" },
-            "xml": { "type": "string" },
-            "yaml": { "type": "string" },
-
-            "python": { "type": "string" },
-            "java": { "type": "string" },
-            "groovy": { "type": "string" },
-            "c": { "type": "string" },
-            "cpp": { "type": "string" },
-            "csharp": { "type": "string" },
-            "ruby": { "type": "string" },
-            "lua": { "type": "string" },
-            "go": { "type": "string" },
-            "php": { "type": "string" },
-            "rust": { "type": "string" },
-            "pascal": { "type": "string" },
-            "zig": { "type": "string" },
-            "nim": { "type": "string" },
-            "swift": { "type": "string" },
-            "dart": { "type": "string" },
-            "rocq": { "type": "string" },
-            "kotlin": { "type": "string" },
-            "lisp": { "type": "string" },
-
-            "shell": { "type": "string" },
-            "windows_shell": { "type": "string" },
-            "powershell": { "type": "string" },
-
-            "smali": { "type": "string" },
-            "assembly": { "type": "string" },
-            "cmake": { "type": "string" },
-            "r": { "type": "string" },
-
-            "sql": { "type": "string" },
-            "toml": { "type": "string" },
-            "ini": { "type": "string" },
-            "properties": { "type": "string" },
-            "ignore": { "type": "string" },
-            "diff": { "type": "string" },
-
-            "text": { "type": "string" },
-            "log": { "type": "string" },
-            "latex": { "type": "string" },
-
-            "image": { "type": "string" },
-            "audio": { "type": "string" },
-            "video": { "type": "string" },
-            "archive": { "type": "string" },
-            "executable": { "type": "string" },
-            "apk": { "type": "string" },
-            "unknown": { "type": "string" }
+            "javascript": {
+              "type": "string"
+            },
+            "typescript": {
+              "type": "string"
+            },
+            "jsx": {
+              "type": "string"
+            },
+            "tsx": {
+              "type": "string"
+            },
+            "html": {
+              "type": "string"
+            },
+            "htmx": {
+              "type": "string"
+            },
+            "css": {
+              "type": "string"
+            },
+            "scss": {
+              "type": "string"
+            },
+            "less": {
+              "type": "string"
+            },
+            "json": {
+              "type": "string"
+            },
+            "markdown": {
+              "type": "string"
+            },
+            "xml": {
+              "type": "string"
+            },
+            "yaml": {
+              "type": "string"
+            },
+            "python": {
+              "type": "string"
+            },
+            "java": {
+              "type": "string"
+            },
+            "groovy": {
+              "type": "string"
+            },
+            "c": {
+              "type": "string"
+            },
+            "cpp": {
+              "type": "string"
+            },
+            "csharp": {
+              "type": "string"
+            },
+            "ruby": {
+              "type": "string"
+            },
+            "lua": {
+              "type": "string"
+            },
+            "go": {
+              "type": "string"
+            },
+            "php": {
+              "type": "string"
+            },
+            "rust": {
+              "type": "string"
+            },
+            "pascal": {
+              "type": "string"
+            },
+            "zig": {
+              "type": "string"
+            },
+            "nim": {
+              "type": "string"
+            },
+            "swift": {
+              "type": "string"
+            },
+            "dart": {
+              "type": "string"
+            },
+            "rocq": {
+              "type": "string"
+            },
+            "kotlin": {
+              "type": "string"
+            },
+            "lisp": {
+              "type": "string"
+            },
+            "shell": {
+              "type": "string"
+            },
+            "windows_shell": {
+              "type": "string"
+            },
+            "powershell": {
+              "type": "string"
+            },
+            "smali": {
+              "type": "string"
+            },
+            "assembly": {
+              "type": "string"
+            },
+            "cmake": {
+              "type": "string"
+            },
+            "r": {
+              "type": "string"
+            },
+            "sql": {
+              "type": "string"
+            },
+            "toml": {
+              "type": "string"
+            },
+            "ini": {
+              "type": "string"
+            },
+            "properties": {
+              "type": "string"
+            },
+            "ignore": {
+              "type": "string"
+            },
+            "diff": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "log": {
+              "type": "string"
+            },
+            "latex": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "audio": {
+              "type": "string"
+            },
+            "video": {
+              "type": "string"
+            },
+            "archive": {
+              "type": "string"
+            },
+            "executable": {
+              "type": "string"
+            },
+            "apk": {
+              "type": "string"
+            },
+            "unknown": {
+              "type": "string"
+            }
           },
-
           "additionalProperties": {
             "type": "string"
           }
