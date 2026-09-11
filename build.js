@@ -17,8 +17,8 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 const id = manifest.id || "package";
 const version = manifest.version || "1.0.0";
 
-const outDir = path.join(root, "dist");
-const zipName = `${id}-${version}.zip`;
+const outDir = path.join(root, "output");
+const zipName = `${id}.xed`;
 const zipPath = path.join(outDir, zipName);
 
 fs.mkdirSync(outDir, { recursive: true });
@@ -32,6 +32,7 @@ if (fs.existsSync(zipPath)) {
  */
 const EXCLUDED_DIRS = new Set([
   "dist",
+  "output",
   "node_modules",
   "schema",
   ".git",
@@ -210,6 +211,5 @@ fs.writeFileSync(zipPath, zipBuffer);
 const size = fs.statSync(zipPath).size;
 
 console.log("");
-console.log("Build completed");
-console.log(`Output: ${zipPath}`);
-console.log(`Size: ${(size / 1024 / 1024).toFixed(2)} MB`);
+console.log(`✅ Built ${id} (${(size / 1024 / 1024).toFixed(2)} MB)`);
+console.log(`   Location: ${zipPath}`);

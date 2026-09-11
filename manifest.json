@@ -1,18 +1,27 @@
 {
-    "$schema": "schema/schema.json",
-    "id": "icon-template",
-    "name": "Icon template",
-    "applyTint": false,
-    "icons": {
-        "defaultFile": "icons/file.svg",
-        "defaultFolderExpanded": "icons/folder-open.svg",
-        "defaultFolder": "icons/folder.svg",
-        "folderNames": {},
-        "folderNamesExpanded": {},
-        "fileNames": {},
-        "fileExtensions": {},
-        "languageNames": {
-            "html": "icons/html.svg"
-        }
+  "$schema": "https://raw.githubusercontent.com/Xed-Editor/Xed-Schemas/main/icon.json",
+  "id": "com.demo.icon_template",
+  "name": "Icon template",
+  "description": "An icon pack template for Xed-Editor",
+  "type": "icon_pack",
+  "author": {
+    "displayName": "Unknown"
+  },
+  "repository": "https://github.com/Xed-Editor/Icon-Template",
+  "license": "MIT",
+  "tags": [],
+  "minAppVersion": 87,
+  "applyTint": false,
+  "icons": {
+    "defaultFile": "icons/file.svg",
+    "defaultFolderExpanded": "icons/folder-open.svg",
+    "defaultFolder": "icons/folder.svg",
+    "folderNames": {},
+    "folderNamesExpanded": {},
+    "fileNames": {},
+    "fileExtensions": {},
+    "languageNames": {
+      "html": "icons/html.svg"
     }
+  }
 }

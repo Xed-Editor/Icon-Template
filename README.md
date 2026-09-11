@@ -21,9 +21,9 @@ cd Icon-Template
 
 After cloning, customize the provided manifest and replace or add icon assets to define your own icon pack.
 
-## Build and Installation
+## Build
 
-Before installing, you need to package your icon pack as a .zip file.
+Before installing, you need to package your icon pack as a .xed file.
 
 There are two supported approaches:
 
@@ -35,13 +35,17 @@ If you have [Node.js](https://nodejs.org/en/download) installed, run:
 node build.js
 ```
 
-You will find the output file under `dist/<id>-<version>.zip`.
+You will find the output file under `output/<id>.xed`.
 
 ### Manual Build
 1. Ensure the manifest file is placed in the root of the project directory.
 2. Include all referenced icon assets alongside it, preserving the folder structure used in the manifest.
-3. Compress the entire directory into a .zip archive.
+3. Compress the entire directory into ZIP archive and change its file extension to `.xed`.
 
-Then you can install it in Xed-Editor under **Xed-Editor → Settings → Themes → Add icon pack**.
+## Install locally
 
-Select your `pack.zip` file to apply the icon pack.
+Go to **Xed-Editor → Settings → Store → Install from storage** and select the built `.xed` file.
+
+## Publish to the store
+
+Upload the built `.xed` on [xed-editor.app](https://xed-editor.app). You can find more information in the documentation.
